@@ -107,7 +107,7 @@ Public Class frmLogin
         Try
             OpenConnection()
 
-            Dim query As String = "SELECT Role, Username FROM tblUsers WHERE (Username = @username OR Email = @email) AND Password = @password"
+            Dim query As String = "SELECT UserID, Role, Username FROM tblUsers WHERE (Username = @username OR Email = @email) AND Password = @password"
             Dim cmd As New OleDbCommand(query, conn)
 
             cmd.Parameters.AddWithValue("@username", txtUsername.Text)
@@ -116,22 +116,39 @@ Public Class frmLogin
 
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
 
+            'If reader.HasRows Then
+            '    reader.Read()
+            '    CurrentUserID = Convert.ToInt32(reader("UserID"))
+            '    CurrentUserRole = reader("Role").ToString()
+            '    CurrentUsername = reader("Username").ToString()
+
+            '    If CurrentUserRole = "Owner" Then
+            '        'Dim hub As New frmHub()
+            '        'hub.Show()
+            '        Dim dashboard As New frmDashboard()
+            '        dashboard.Show()
+            '        Me.Hide()
+            '    ElseIf CurrentUserRole = "Manager" Or CurrentUserRole = "Assistant Manager" Then
+            '        Dim dashboard As New frmDashboard()
+            '        dashboard.Show()
+            '        Me.Hide()
+            '    Else
+            '        MessageBox.Show("Unrecognized Role.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            '    End If
+            'Else
+            '    MessageBox.Show("Invalid credentials. Please check your username/email and password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            '    ResetPlaceholders()
+            'End If
+
             If reader.HasRows Then
                 reader.Read()
+                CurrentUserID = Convert.ToInt32(reader("UserID"))
                 CurrentUserRole = reader("Role").ToString()
                 CurrentUsername = reader("Username").ToString()
 
-                If CurrentUserRole = "Super Admin" Then
-                    Dim hub As New frmHub()
-                    hub.Show()
-                    Me.Hide()
-                ElseIf CurrentUserRole = "Manager" Or CurrentUserRole = "Assistant Manager" Then
-                    Dim dashboard As New frmDashboard()
-                    dashboard.Show()
-                    Me.Hide()
-                Else
-                    MessageBox.Show("Unrecognized Role.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
-                End If
+                Dim dashboard As New frmDashboard()
+                dashboard.Show()
+                Me.Hide()
             Else
                 MessageBox.Show("Invalid credentials. Please check your username/email and password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error)
                 ResetPlaceholders()

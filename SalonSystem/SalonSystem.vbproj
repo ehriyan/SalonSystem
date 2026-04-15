@@ -73,6 +73,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAddClient.Designer.vb">
+      <DependentUpon>frmAddClient.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddClient.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddUser.Designer.vb">
+      <DependentUpon>frmAddUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHome.Designer.vb">
+      <DependentUpon>frmHome.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmHome.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -90,6 +108,18 @@
       <DependentUpon>frmHub.vb</DependentUpon>
     </Compile>
     <Compile Include="frmHub.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageClients.Designer.vb">
+      <DependentUpon>frmManageClients.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageClients.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageUsers.Designer.vb">
+      <DependentUpon>frmManageUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageUsers.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPayment.Designer.vb">
@@ -110,7 +140,7 @@
     <Compile Include="frmSelectStylists.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Module1.vb" />
+    <Compile Include="SessionManager.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -129,6 +159,15 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAddClient.resx">
+      <DependentUpon>frmAddClient.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddUser.resx">
+      <DependentUpon>frmAddUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHome.resx">
+      <DependentUpon>frmHome.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
     </EmbeddedResource>
@@ -137,6 +176,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHub.resx">
       <DependentUpon>frmHub.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageClients.resx">
+      <DependentUpon>frmManageClients.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageUsers.resx">
+      <DependentUpon>frmManageUsers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPayment.resx">
       <DependentUpon>frmPayment.vb</DependentUpon>
@@ -210,6 +255,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\admin-dark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\group-dark.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

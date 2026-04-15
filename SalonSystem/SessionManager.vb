@@ -1,10 +1,11 @@
 ﻿Imports System.Data.OleDb
 Imports System.IO
 
-Module Module1
+Module SessionManager
     Public conn As New OleDbConnection()
     Public CurrentUsername As String = ""
     Public CurrentUserRole As String = ""
+    Public CurrentUserID As Integer = 0
 
     Public Sub InitializeDatabasePath()
         Dim finalDbPath As String = ""
