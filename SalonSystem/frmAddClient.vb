@@ -14,11 +14,9 @@ Public Class frmAddClient
 
     Private Sub frmAddClient_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         If CurrentClientID = 0 Then
-            ' ADD MODE: We are creating someone new.
             Me.Text = "Add New Client"
             btnSave.Text = "Save Client"
         Else
-            ' EDIT MODE: We are viewing an existing client.
             Me.Text = "Client Profile"
             btnSave.Text = "Update Profile"
             LoadClientData()
@@ -35,7 +33,6 @@ Public Class frmAddClient
             Dim reader As OleDbDataReader = cmd.ExecuteReader()
 
             If reader.Read() Then
-                ' Fill all the textboxes with the database info
                 txtFirstName.Text = reader("FirstName").ToString()
                 txtLastName.Text = reader("LastName").ToString()
                 txtContact.Text = reader("ContactNumber").ToString()
@@ -44,11 +41,9 @@ Public Class frmAddClient
                 cmbCustomerType.SelectedItem = reader("CustomerType").ToString()
                 txtRemarks.Text = reader("Remarks").ToString()
 
-                ' Handle Dates safely (in case they are blank in the database)
                 If Not IsDBNull(reader("Birthday")) Then dtpBirthday.Value = Convert.ToDateTime(reader("Birthday"))
                 If Not IsDBNull(reader("InitialVisit")) Then dtpInitialVisit.Value = Convert.ToDateTime(reader("InitialVisit"))
 
-                ' Handle the Checkbox
                 If Not IsDBNull(reader("ReturningCustomer")) Then
                     chkReturning.Checked = Convert.ToBoolean(reader("ReturningCustomer"))
                 End If
@@ -62,10 +57,9 @@ Public Class frmAddClient
         End Try
     End Sub
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
-        ' Basic Validation
+    Private Sub btnSave_Click(sender As Object, e As EventArgs)
         If txtFirstName.Text = "" Or txtLastName.Text = "" Or txtContact.Text = "" Then
-            MessageBox.Show("First Name, Last Name, and Contact Number are required.", "Missing Info", MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            MessageBox.Show("Fill out all required information.", "Missing Info", MessageBoxButtons.OK, MessageBoxIcon.Warning)
             Return
         End If
 
@@ -74,19 +68,15 @@ Public Class frmAddClient
             Dim cmd As New OleDbCommand()
             cmd.Connection = conn
 
-            ' Decide whether to INSERT or UPDATE based on our ID variable
             If CurrentClientID = 0 Then
-                ' NEW CLIENT MODE
                 cmd.CommandText = "INSERT INTO tblClients (LastName, FirstName, ContactNumber, Email, Address, Birthday, CustomerType, InitialVisit, ReturningCustomer, Remarks) " &
                               "VALUES (@fname, @lname, @contact, @email, @address, @bday, @type, @visit, @returning, @remarks)"
             Else
-                ' EDIT CLIENT MODE
                 cmd.CommandText = "UPDATE tblClients SET LastName=@lname, FirstName=@fname, ContactNumber=@contact, Email=@email, " &
                               "Address=@address, Birthday=@bday, CustomerType=@type, InitialVisit=@visit, ReturningCustomer=@returning, Remarks=@remarks " &
                               "WHERE ClientID = @id"
             End If
 
-            ' Add all the parameters (Order MUST match the SQL above)
             cmd.Parameters.AddWithValue("@lname", txtLastName.Text)
             cmd.Parameters.AddWithValue("@fname", txtFirstName.Text)
             cmd.Parameters.AddWithValue("@contact", txtContact.Text)
@@ -97,7 +87,7 @@ Public Class frmAddClient
             If cmbCustomerType.SelectedItem IsNot Nothing Then
                 cmd.Parameters.AddWithValue("@type", cmbCustomerType.SelectedItem.ToString())
             Else
-                cmd.Parameters.AddWithValue("@type", "Walk-in") ' Default 
+                cmd.Parameters.AddWithValue("@type", "Walk-in")
             End If
 
             cmd.Parameters.AddWithValue("@visit", dtpInitialVisit.Value.Date)
@@ -120,7 +110,11 @@ Public Class frmAddClient
         End Try
     End Sub
 
-    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs)
+        Me.Close()
+    End Sub
+
+    Private Sub lblExit_Click(sender As Object, e As EventArgs) Handles lblExit.Click
         Me.Close()
     End Sub
 End Class

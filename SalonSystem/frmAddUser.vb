@@ -22,10 +22,9 @@ Public Class frmAddUser
             cmd.Parameters.AddWithValue("@role", cmbRole.SelectedItem.ToString())
             cmd.Parameters.AddWithValue("@email", txtEmail.Text)
 
-
             cmd.ExecuteNonQuery()
             cmd.CommandText = "SELECT @@IDENTITY"
-            cmd.Parameters.Clear() ' Clear out the old textboxes from memory
+            cmd.Parameters.Clear()
 
             Dim newUserID As Integer = Convert.ToInt32(cmd.ExecuteScalar())
 
@@ -63,4 +62,9 @@ Public Class frmAddUser
     Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
         Me.Close()
     End Sub
+
+    Private Sub lblExit_Click(sender As Object, e As EventArgs) Handles lblExit.Click
+        Me.Close()
+    End Sub
+
 End Class
