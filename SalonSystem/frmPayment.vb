@@ -126,4 +126,8 @@
         Me.DialogResult = DialogResult.Cancel
         Me.Close()
     End Sub
+
+    Private Sub lblExit_Click(sender As Object, e As EventArgs) Handles lblExit.Click
+        Me.Close()
+    End Sub
 End Class

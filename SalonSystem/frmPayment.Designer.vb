@@ -41,6 +41,7 @@ Partial Class frmPayment
         Me.pnlGCashDetails = New System.Windows.Forms.Panel()
         Me.txtGCashRef = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
+        Me.lblExit = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.pnlCashDetails.SuspendLayout()
         Me.pnlCardDetails.SuspendLayout()
@@ -50,10 +51,10 @@ Partial Class frmPayment
         'Label
         '
         Me.Label.AutoSize = True
-        Me.Label.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label.Location = New System.Drawing.Point(71, 49)
+        Me.Label.Font = New System.Drawing.Font("DM Sans", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label.Location = New System.Drawing.Point(105, 60)
         Me.Label.Name = "Label"
-        Me.Label.Size = New System.Drawing.Size(184, 33)
+        Me.Label.Size = New System.Drawing.Size(158, 31)
         Me.Label.TabIndex = 0
         Me.Label.Text = "Amount Due:"
         '
@@ -185,7 +186,7 @@ Partial Class frmPayment
         '
         Me.lblAmountDue.AutoSize = True
         Me.lblAmountDue.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblAmountDue.Location = New System.Drawing.Point(290, 49)
+        Me.lblAmountDue.Location = New System.Drawing.Point(277, 57)
         Me.lblAmountDue.Name = "lblAmountDue"
         Me.lblAmountDue.Size = New System.Drawing.Size(176, 33)
         Me.lblAmountDue.TabIndex = 9
@@ -247,11 +248,26 @@ Partial Class frmPayment
         Me.Label3.TabIndex = 9
         Me.Label3.Text = "GCash Ref Number:"
         '
+        'lblExit
+        '
+        Me.lblExit.AutoSize = True
+        Me.lblExit.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblExit.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblExit.ForeColor = System.Drawing.Color.SlateGray
+        Me.lblExit.Location = New System.Drawing.Point(503, 9)
+        Me.lblExit.Name = "lblExit"
+        Me.lblExit.Size = New System.Drawing.Size(32, 33)
+        Me.lblExit.TabIndex = 60
+        Me.lblExit.Text = "×"
+        Me.lblExit.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        '
         'frmPayment
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(547, 497)
+        Me.Controls.Add(Me.lblExit)
         Me.Controls.Add(Me.pnlGCashDetails)
         Me.Controls.Add(Me.lblAmountDue)
         Me.Controls.Add(Me.pnlCardDetails)
@@ -297,4 +313,5 @@ Partial Class frmPayment
     Friend WithEvents pnlGCashDetails As Panel
     Friend WithEvents txtGCashRef As TextBox
     Friend WithEvents Label3 As Label
+    Friend WithEvents lblExit As Label
 End Class

@@ -3,7 +3,7 @@
 Public Class frmHome
     Private Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         SetupGridStyle()
-        LoadRecentActivity()
+        'LoadRecentActivity()
     End Sub
 
     Private Sub LoadRecentActivity()
@@ -21,16 +21,16 @@ Public Class frmHome
             Dim dt As New DataTable()
             adapter.Fill(dt)
 
-            dgvRecentActivity.DataSource = dt
+            'dgvRecentActivity.DataSource = dt
 
-            dgvRecentActivity.Columns("TransactionTime").HeaderText = "Time"
-            dgvRecentActivity.Columns("ClientName").HeaderText = "Client"
-            dgvRecentActivity.Columns("StylistName").HeaderText = "Stylist"
-            dgvRecentActivity.Columns("TotalAmount").HeaderText = "Total Paid"
+            'dgvRecentActivity.Columns("TransactionTime").HeaderText = "Time"
+            'dgvRecentActivity.Columns("ClientName").HeaderText = "Client"
+            'dgvRecentActivity.Columns("StylistName").HeaderText = "Stylist"
+            'dgvRecentActivity.Columns("TotalAmount").HeaderText = "Total Paid"
 
-            dgvRecentActivity.Columns("TotalAmount").DefaultCellStyle.Format = "C2"
+            'dgvRecentActivity.Columns("TotalAmount").DefaultCellStyle.Format = "C2"
 
-            dgvRecentActivity.Columns("TransactionID").Visible = False
+            'dgvRecentActivity.Columns("TransactionID").Visible = False
 
         Catch ex As Exception
             MessageBox.Show("Dashboard Data Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -40,37 +40,37 @@ Public Class frmHome
     End Sub
 
     Private Sub SetupGridStyle()
-        dgvRecentActivity.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        dgvRecentActivity.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        dgvRecentActivity.AllowUserToAddRows = False
-        dgvRecentActivity.RowHeadersVisible = False
-        dgvRecentActivity.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgvRecentActivity.ReadOnly = True
+        'dgvRecentActivity.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
+        'dgvRecentActivity.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
+        'dgvRecentActivity.AllowUserToAddRows = False
+        'dgvRecentActivity.RowHeadersVisible = False
+        'dgvRecentActivity.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        'dgvRecentActivity.ReadOnly = True
 
-        dgvRecentActivity.BackgroundColor = Color.White
-        dgvRecentActivity.BorderStyle = BorderStyle.None
-        dgvRecentActivity.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
-        dgvRecentActivity.GridColor = Color.FromArgb(230, 230, 230)
-        dgvRecentActivity.EnableHeadersVisualStyles = False
+        'dgvRecentActivity.BackgroundColor = Color.White
+        'dgvRecentActivity.BorderStyle = BorderStyle.None
+        'dgvRecentActivity.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
+        'dgvRecentActivity.GridColor = Color.FromArgb(230, 230, 230)
+        'dgvRecentActivity.EnableHeadersVisualStyles = False
 
-        Dim modernFont As New Font("DM Sans", 11, FontStyle.Regular)
-        Dim headerFont As New Font("DM Sans", 11, FontStyle.Bold)
+        'Dim modernFont As New Font("DM Sans", 11, FontStyle.Regular)
+        'Dim headerFont As New Font("DM Sans", 11, FontStyle.Bold)
 
-        dgvRecentActivity.DefaultCellStyle.Font = modernFont
-        dgvRecentActivity.ColumnHeadersDefaultCellStyle.Font = headerFont
+        'dgvRecentActivity.DefaultCellStyle.Font = modernFont
+        'dgvRecentActivity.ColumnHeadersDefaultCellStyle.Font = headerFont
 
-        dgvRecentActivity.RowTemplate.Height = 40
-        dgvRecentActivity.ColumnHeadersHeight = 50
+        'dgvRecentActivity.RowTemplate.Height = 40
+        'dgvRecentActivity.ColumnHeadersHeight = 50
 
-        dgvRecentActivity.DefaultCellStyle.Padding = New Padding(5, 0, 5, 0)
-        dgvRecentActivity.ColumnHeadersDefaultCellStyle.Padding = New Padding(5, 5, 5, 5)
+        'dgvRecentActivity.DefaultCellStyle.Padding = New Padding(5, 0, 5, 0)
+        'dgvRecentActivity.ColumnHeadersDefaultCellStyle.Padding = New Padding(5, 5, 5, 5)
 
-        dgvRecentActivity.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(40, 40, 40)
-        dgvRecentActivity.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
+        'dgvRecentActivity.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(40, 40, 40)
+        'dgvRecentActivity.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
 
-        dgvRecentActivity.DefaultCellStyle.SelectionBackColor = Color.LightGray
-        dgvRecentActivity.DefaultCellStyle.SelectionForeColor = Color.Black
+        'dgvRecentActivity.DefaultCellStyle.SelectionBackColor = Color.LightGray
+        'dgvRecentActivity.DefaultCellStyle.SelectionForeColor = Color.Black
 
-        dgvRecentActivity.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245)
+        'dgvRecentActivity.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245)
     End Sub
 End Class

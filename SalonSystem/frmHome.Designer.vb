@@ -46,7 +46,6 @@ Partial Class frmHome
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Panel12 = New System.Windows.Forms.Panel()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.dgvRecentActivity = New System.Windows.Forms.DataGridView()
         Me.Panel6.SuspendLayout()
         Me.Panel7.SuspendLayout()
         Me.Panel4.SuspendLayout()
@@ -59,7 +58,6 @@ Partial Class frmHome
         Me.Panel10.SuspendLayout()
         Me.Panel11.SuspendLayout()
         Me.Panel12.SuspendLayout()
-        CType(Me.dgvRecentActivity, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel6
@@ -76,11 +74,11 @@ Partial Class frmHome
         Me.Label5.AutoSize = True
         Me.Label5.Font = New System.Drawing.Font("DM Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.Color.White
-        Me.Label5.Location = New System.Drawing.Point(69, 9)
+        Me.Label5.Location = New System.Drawing.Point(73, 9)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(122, 21)
+        Me.Label5.Size = New System.Drawing.Size(115, 21)
         Me.Label5.TabIndex = 0
-        Me.Label5.Text = "New Walk-ins"
+        Me.Label5.Text = "Total Clients"
         '
         'Panel7
         '
@@ -96,11 +94,11 @@ Partial Class frmHome
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("DM Sans", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label6.ForeColor = System.Drawing.Color.IndianRed
-        Me.Label6.Location = New System.Drawing.Point(109, 55)
+        Me.Label6.Location = New System.Drawing.Point(107, 54)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(41, 46)
+        Me.Label6.Size = New System.Drawing.Size(53, 46)
         Me.Label6.TabIndex = 1
-        Me.Label6.Text = "5"
+        Me.Label6.Text = "19"
         '
         'Panel4
         '
@@ -116,11 +114,11 @@ Partial Class frmHome
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("DM Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.White
-        Me.Label3.Location = New System.Drawing.Point(69, 9)
+        Me.Label3.Location = New System.Drawing.Point(78, 9)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(115, 21)
+        Me.Label3.Size = New System.Drawing.Size(103, 21)
         Me.Label3.TabIndex = 0
-        Me.Label3.Text = "Total Clients"
+        Me.Label3.Text = "Total Users"
         '
         'Panel5
         '
@@ -136,11 +134,11 @@ Partial Class frmHome
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("DM Sans", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.IndianRed
-        Me.Label4.Location = New System.Drawing.Point(103, 55)
+        Me.Label4.Location = New System.Drawing.Point(113, 55)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(52, 46)
+        Me.Label4.Size = New System.Drawing.Size(39, 46)
         Me.Label4.TabIndex = 1
-        Me.Label4.Text = "14"
+        Me.Label4.Text = "7"
         '
         'Panel1
         '
@@ -176,11 +174,11 @@ Partial Class frmHome
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("DM Sans", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.IndianRed
-        Me.Label2.Location = New System.Drawing.Point(26, 56)
+        Me.Label2.Location = New System.Drawing.Point(40, 57)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(210, 46)
+        Me.Label2.Size = New System.Drawing.Size(183, 46)
         Me.Label2.TabIndex = 1
-        Me.Label2.Text = "₱45,398.00"
+        Me.Label2.Text = "₱5,106.00"
         '
         'Panel2
         '
@@ -216,7 +214,7 @@ Partial Class frmHome
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("DM Sans", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.IndianRed
-        Me.Label10.Location = New System.Drawing.Point(109, 55)
+        Me.Label10.Location = New System.Drawing.Point(110, 55)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(41, 46)
         Me.Label10.TabIndex = 1
@@ -236,11 +234,11 @@ Partial Class frmHome
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("DM Sans", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.White
-        Me.Label11.Location = New System.Drawing.Point(69, 9)
+        Me.Label11.Location = New System.Drawing.Point(64, 9)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(115, 21)
+        Me.Label11.Size = New System.Drawing.Size(127, 21)
         Me.Label11.TabIndex = 0
-        Me.Label11.Text = "Total Clients"
+        Me.Label11.Text = "Total Regulars"
         '
         'Panel10
         '
@@ -256,7 +254,7 @@ Partial Class frmHome
         Me.Label12.AutoSize = True
         Me.Label12.Font = New System.Drawing.Font("DM Sans", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.Color.IndianRed
-        Me.Label12.Location = New System.Drawing.Point(103, 55)
+        Me.Label12.Location = New System.Drawing.Point(104, 56)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(52, 46)
         Me.Label12.TabIndex = 1
@@ -278,9 +276,9 @@ Partial Class frmHome
         Me.Label13.ForeColor = System.Drawing.Color.White
         Me.Label13.Location = New System.Drawing.Point(60, 9)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(147, 21)
+        Me.Label13.Size = New System.Drawing.Size(143, 21)
         Me.Label13.TabIndex = 0
-        Me.Label13.Text = "Today's Revenue"
+        Me.Label13.Text = "Weekly Revenue"
         '
         'Panel12
         '
@@ -302,24 +300,12 @@ Partial Class frmHome
         Me.Label14.TabIndex = 1
         Me.Label14.Text = "₱45,398.00"
         '
-        'dgvRecentActivity
-        '
-        Me.dgvRecentActivity.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.dgvRecentActivity.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvRecentActivity.Location = New System.Drawing.Point(61, 322)
-        Me.dgvRecentActivity.Name = "dgvRecentActivity"
-        Me.dgvRecentActivity.Size = New System.Drawing.Size(837, 235)
-        Me.dgvRecentActivity.TabIndex = 58
-        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(992, 571)
-        Me.Controls.Add(Me.dgvRecentActivity)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel8)
         Me.Controls.Add(Me.Panel9)
@@ -361,7 +347,6 @@ Partial Class frmHome
         Me.Panel11.PerformLayout()
         Me.Panel12.ResumeLayout(False)
         Me.Panel12.PerformLayout()
-        CType(Me.dgvRecentActivity, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -389,5 +374,4 @@ Partial Class frmHome
     Friend WithEvents Label13 As Label
     Friend WithEvents Panel12 As Panel
     Friend WithEvents Label14 As Label
-    Friend WithEvents dgvRecentActivity As DataGridView
 End Class
