@@ -12,8 +12,8 @@ Public Class frmManageClients
             OpenConnection()
 
             Dim query As String = "SELECT ClientID, LastName, FirstName, " &
-                              "ContactNumber, Email, CustomerType, ReturningCustomer " &
-                              "FROM tblClients"
+                                  "ContactNumber, Email, CustomerType, ReturningCustomer " &
+                                  "FROM tblClients"
 
             Dim cmd As New OleDbCommand()
 
