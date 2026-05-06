@@ -55,7 +55,6 @@ Module Module1
     Public CurrentUserID As Integer = 0
 
     Public Sub InitializeDatabasePath()
-        ' Try multiple possible paths for the database
         Dim dbPath As String = ""
         Dim possiblePaths As String() = {
             "C:\SalonSystem\database\salon_database.accdb",
