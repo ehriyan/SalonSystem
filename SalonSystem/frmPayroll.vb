@@ -14,7 +14,7 @@ Public Class frmPayroll
             Dim startDate As Date = dtpStart.Value
             Dim endDate As Date = dtpEnd.Value
 
-            ' ===== TOTAL PAYROLL =====
+      
             Dim totalPayrollCmd As New OleDbCommand(
                 "SELECT SUM(NetPayout) FROM tblPayroll 
              WHERE PeriodStartDate >= ? AND PeriodEndDate <= ?", conn)
@@ -25,7 +25,6 @@ Public Class frmPayroll
             Dim totalPayroll = totalPayrollCmd.ExecuteScalar()
             lblTotalPayroll.Text = "₱ " & If(IsDBNull(totalPayroll), 0, totalPayroll)
 
-            ' ===== TOTAL COMMISSION =====
             Dim comCmd As New OleDbCommand(
                 "SELECT SUM(CalculatedCommission) FROM tblPayroll 
              WHERE PeriodStartDate >= ? AND PeriodEndDate <= ?", conn)
@@ -36,7 +35,6 @@ Public Class frmPayroll
             Dim totalCom = comCmd.ExecuteScalar()
             lblTotalCommission.Text = "₱ " & If(IsDBNull(totalCom), 0, totalCom)
 
-            ' ===== TOTAL DEDUCTIONS =====
             Dim dedCmd As New OleDbCommand(
                 "SELECT SUM(TotalDeductions) FROM tblPayroll 
              WHERE PeriodStartDate >= ? AND PeriodEndDate <= ?", conn)
@@ -47,7 +45,6 @@ Public Class frmPayroll
             Dim totalDed = dedCmd.ExecuteScalar()
             lblTotalDeductions.Text = "₱ " & If(IsDBNull(totalDed), 0, totalDed)
 
-            ' ===== TOTAL EMPLOYEES =====
             Dim empCmd As New OleDbCommand("SELECT COUNT(*) FROM tblEmployees", conn)
             lblTotalEmployees.Text = empCmd.ExecuteScalar().ToString()
 
@@ -142,7 +139,7 @@ Public Class frmPayroll
 
             Dim cmd As New OleDbCommand(
                 "SELECT p.PayrollID, 
-                    e.FirstName & ' ' & e.LastName AS Employee,
+                    e.FirstName & 
                     p.GrossPay, p.TotalDeductions, p.NetPayout, p.Status
              FROM tblPayroll p
              INNER JOIN tblEmployees e ON p.EmployeeID = e.EmployeeID
@@ -181,31 +178,25 @@ Public Class frmPayroll
         End If
 
         Try
-            ' ===== CREATE WORKBOOK =====
             Dim wb As New XLWorkbook()
             Dim ws = wb.Worksheets.Add("Payroll Report")
 
-            ' ===== HEADERS =====
             For col As Integer = 0 To dgvReport.Columns.Count - 1
                 ws.Cell(1, col + 1).Value = dgvReport.Columns(col).HeaderText
                 ws.Cell(1, col + 1).Style.Font.Bold = True
             Next
 
-            ' ===== DATA =====
             For row As Integer = 0 To dgvReport.Rows.Count - 1
                 For col As Integer = 0 To dgvReport.Columns.Count - 1
                     ws.Cell(row + 2, col + 1).Value = dgvReport.Rows(row).Cells(col).Value
                 Next
             Next
 
-            ' ===== AUTO SIZE =====
             ws.Columns().AdjustToContents()
 
-            ' ===== FILE PATH =====
             Dim path As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) &
                                  "\Payroll_Report_" & Date.Now.ToString("yyyyMMdd_HHmmss") & ".xlsx"
 
-            ' ===== SAVE =====
             wb.SaveAs(path)
 
             MsgBox("Exported successfully to Desktop!")
