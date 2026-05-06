@@ -100,4 +100,8 @@ Public Class frmManageClients
 
         dgvClients.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245)
     End Sub
+
+    Private Sub dgvClients_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvClients.CellContentClick
+
+    End Sub
 End Class

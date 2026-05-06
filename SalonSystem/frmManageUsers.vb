@@ -110,4 +110,8 @@ Public Class frmManageUsers
     Private Sub txtSearch_TextChanged(sender As Object, e As EventArgs) Handles txtSearch.TextChanged
         LoadUsersGrid(txtSearch.Text)
     End Sub
+
+    Private Sub dgvUsers_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgvUsers.CellContentClick
+
+    End Sub
 End Class

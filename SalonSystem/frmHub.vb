@@ -37,4 +37,15 @@
             Me.Close()
         End If
     End Sub
+
+    Private Sub Panel3_Paint(sender As Object, e As PaintEventArgs) Handles Panel3.Paint
+        Dim payForm As New frmPayroll()
+        Me.Hide()
+        payForm.ShowDialog()
+        Me.Show()
+    End Sub
+
+    Private Sub Panel4_Paint(sender As Object, e As PaintEventArgs) Handles Panel4.Paint
+
+    End Sub
 End Class

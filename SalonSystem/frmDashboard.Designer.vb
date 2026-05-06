@@ -26,7 +26,7 @@ Partial Class frmDashboard
         Me.lblWelcome = New System.Windows.Forms.Label()
         Me.pnlSidebar = New System.Windows.Forms.Panel()
         Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnPayroll = New System.Windows.Forms.Button()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.btnLogout = New System.Windows.Forms.Button()
         Me.btnManageClients = New System.Windows.Forms.Button()
@@ -47,19 +47,21 @@ Partial Class frmDashboard
         Me.pnlHeader.BackColor = System.Drawing.Color.WhiteSmoke
         Me.pnlHeader.Controls.Add(Me.lblWelcome)
         Me.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top
-        Me.pnlHeader.Location = New System.Drawing.Point(239, 0)
+        Me.pnlHeader.Location = New System.Drawing.Point(319, 0)
+        Me.pnlHeader.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pnlHeader.Name = "pnlHeader"
-        Me.pnlHeader.Size = New System.Drawing.Size(945, 39)
+        Me.pnlHeader.Size = New System.Drawing.Size(1260, 48)
         Me.pnlHeader.TabIndex = 0
         '
         'lblWelcome
         '
         Me.lblWelcome.AutoSize = True
-        Me.lblWelcome.Font = New System.Drawing.Font("DM Sans", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblWelcome.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblWelcome.ForeColor = System.Drawing.Color.Black
-        Me.lblWelcome.Location = New System.Drawing.Point(22, 12)
+        Me.lblWelcome.Location = New System.Drawing.Point(29, 15)
+        Me.lblWelcome.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblWelcome.Name = "lblWelcome"
-        Me.lblWelcome.Size = New System.Drawing.Size(82, 21)
+        Me.lblWelcome.Size = New System.Drawing.Size(101, 25)
         Me.lblWelcome.TabIndex = 0
         Me.lblWelcome.Text = "Welcome!"
         '
@@ -67,7 +69,7 @@ Partial Class frmDashboard
         '
         Me.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(CType(CType(250, Byte), Integer), CType(CType(245, Byte), Integer), CType(CType(242, Byte), Integer))
         Me.pnlSidebar.Controls.Add(Me.Button6)
-        Me.pnlSidebar.Controls.Add(Me.Button5)
+        Me.pnlSidebar.Controls.Add(Me.btnPayroll)
         Me.pnlSidebar.Controls.Add(Me.Button4)
         Me.pnlSidebar.Controls.Add(Me.btnLogout)
         Me.pnlSidebar.Controls.Add(Me.btnManageClients)
@@ -77,8 +79,9 @@ Partial Class frmDashboard
         Me.pnlSidebar.Controls.Add(Me.Panel2)
         Me.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left
         Me.pnlSidebar.Location = New System.Drawing.Point(0, 0)
+        Me.pnlSidebar.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pnlSidebar.Name = "pnlSidebar"
-        Me.pnlSidebar.Size = New System.Drawing.Size(239, 611)
+        Me.pnlSidebar.Size = New System.Drawing.Size(319, 752)
         Me.pnlSidebar.TabIndex = 1
         '
         'Button6
@@ -87,31 +90,33 @@ Partial Class frmDashboard
         Me.Button6.Dock = System.Windows.Forms.DockStyle.Top
         Me.Button6.FlatAppearance.BorderSize = 0
         Me.Button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button6.Font = New System.Drawing.Font("DM Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Location = New System.Drawing.Point(0, 439)
+        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button6.Location = New System.Drawing.Point(0, 541)
+        Me.Button6.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button6.Name = "Button6"
-        Me.Button6.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.Button6.Size = New System.Drawing.Size(239, 60)
+        Me.Button6.Padding = New System.Windows.Forms.Padding(27, 0, 0, 0)
+        Me.Button6.Size = New System.Drawing.Size(319, 74)
         Me.Button6.TabIndex = 9
         Me.Button6.Text = "View Reports"
         Me.Button6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.Button6.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnPayroll
         '
-        Me.Button5.Cursor = System.Windows.Forms.Cursors.Hand
-        Me.Button5.Dock = System.Windows.Forms.DockStyle.Top
-        Me.Button5.FlatAppearance.BorderSize = 0
-        Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button5.Font = New System.Drawing.Font("DM Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Location = New System.Drawing.Point(0, 379)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.Button5.Size = New System.Drawing.Size(239, 60)
-        Me.Button5.TabIndex = 8
-        Me.Button5.Text = "Manage Payroll"
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnPayroll.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.btnPayroll.Dock = System.Windows.Forms.DockStyle.Top
+        Me.btnPayroll.FlatAppearance.BorderSize = 0
+        Me.btnPayroll.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnPayroll.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPayroll.Location = New System.Drawing.Point(0, 467)
+        Me.btnPayroll.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.btnPayroll.Name = "btnPayroll"
+        Me.btnPayroll.Padding = New System.Windows.Forms.Padding(27, 0, 0, 0)
+        Me.btnPayroll.Size = New System.Drawing.Size(319, 74)
+        Me.btnPayroll.TabIndex = 8
+        Me.btnPayroll.Text = "Manage Payroll"
+        Me.btnPayroll.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnPayroll.UseVisualStyleBackColor = True
         '
         'Button4
         '
@@ -119,11 +124,12 @@ Partial Class frmDashboard
         Me.Button4.Dock = System.Windows.Forms.DockStyle.Top
         Me.Button4.FlatAppearance.BorderSize = 0
         Me.Button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button4.Font = New System.Drawing.Font("DM Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.Location = New System.Drawing.Point(0, 319)
+        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button4.Location = New System.Drawing.Point(0, 393)
+        Me.Button4.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Button4.Name = "Button4"
-        Me.Button4.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.Button4.Size = New System.Drawing.Size(239, 60)
+        Me.Button4.Padding = New System.Windows.Forms.Padding(27, 0, 0, 0)
+        Me.Button4.Size = New System.Drawing.Size(319, 74)
         Me.Button4.TabIndex = 7
         Me.Button4.Text = "Manage Employees"
         Me.Button4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -135,11 +141,12 @@ Partial Class frmDashboard
         Me.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand
         Me.btnLogout.FlatAppearance.BorderSize = 0
         Me.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnLogout.Font = New System.Drawing.Font("DM Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnLogout.Location = New System.Drawing.Point(0, 551)
+        Me.btnLogout.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLogout.Location = New System.Drawing.Point(0, 678)
+        Me.btnLogout.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnLogout.Name = "btnLogout"
-        Me.btnLogout.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.btnLogout.Size = New System.Drawing.Size(239, 60)
+        Me.btnLogout.Padding = New System.Windows.Forms.Padding(27, 0, 0, 0)
+        Me.btnLogout.Size = New System.Drawing.Size(319, 74)
         Me.btnLogout.TabIndex = 6
         Me.btnLogout.Text = "Log out"
         Me.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -151,11 +158,12 @@ Partial Class frmDashboard
         Me.btnManageClients.Dock = System.Windows.Forms.DockStyle.Top
         Me.btnManageClients.FlatAppearance.BorderSize = 0
         Me.btnManageClients.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnManageClients.Font = New System.Drawing.Font("DM Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnManageClients.Location = New System.Drawing.Point(0, 259)
+        Me.btnManageClients.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnManageClients.Location = New System.Drawing.Point(0, 319)
+        Me.btnManageClients.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnManageClients.Name = "btnManageClients"
-        Me.btnManageClients.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.btnManageClients.Size = New System.Drawing.Size(239, 60)
+        Me.btnManageClients.Padding = New System.Windows.Forms.Padding(27, 0, 0, 0)
+        Me.btnManageClients.Size = New System.Drawing.Size(319, 74)
         Me.btnManageClients.TabIndex = 5
         Me.btnManageClients.Text = "Manage Clients"
         Me.btnManageClients.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -167,11 +175,12 @@ Partial Class frmDashboard
         Me.btnManageUsers.Dock = System.Windows.Forms.DockStyle.Top
         Me.btnManageUsers.FlatAppearance.BorderSize = 0
         Me.btnManageUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnManageUsers.Font = New System.Drawing.Font("DM Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnManageUsers.Location = New System.Drawing.Point(0, 199)
+        Me.btnManageUsers.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnManageUsers.Location = New System.Drawing.Point(0, 245)
+        Me.btnManageUsers.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnManageUsers.Name = "btnManageUsers"
-        Me.btnManageUsers.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.btnManageUsers.Size = New System.Drawing.Size(239, 60)
+        Me.btnManageUsers.Padding = New System.Windows.Forms.Padding(27, 0, 0, 0)
+        Me.btnManageUsers.Size = New System.Drawing.Size(319, 74)
         Me.btnManageUsers.TabIndex = 4
         Me.btnManageUsers.Text = "Manage Users"
         Me.btnManageUsers.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -183,11 +192,12 @@ Partial Class frmDashboard
         Me.btnPOS.Dock = System.Windows.Forms.DockStyle.Top
         Me.btnPOS.FlatAppearance.BorderSize = 0
         Me.btnPOS.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnPOS.Font = New System.Drawing.Font("DM Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnPOS.Location = New System.Drawing.Point(0, 139)
+        Me.btnPOS.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnPOS.Location = New System.Drawing.Point(0, 171)
+        Me.btnPOS.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnPOS.Name = "btnPOS"
-        Me.btnPOS.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.btnPOS.Size = New System.Drawing.Size(239, 60)
+        Me.btnPOS.Padding = New System.Windows.Forms.Padding(27, 0, 0, 0)
+        Me.btnPOS.Size = New System.Drawing.Size(319, 74)
         Me.btnPOS.TabIndex = 3
         Me.btnPOS.Text = "Point of Sale (POS)  ↗"
         Me.btnPOS.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -200,12 +210,13 @@ Partial Class frmDashboard
         Me.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top
         Me.btnDashboard.FlatAppearance.BorderSize = 0
         Me.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnDashboard.Font = New System.Drawing.Font("DM Sans", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnDashboard.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnDashboard.ForeColor = System.Drawing.Color.White
-        Me.btnDashboard.Location = New System.Drawing.Point(0, 79)
+        Me.btnDashboard.Location = New System.Drawing.Point(0, 97)
+        Me.btnDashboard.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.btnDashboard.Name = "btnDashboard"
-        Me.btnDashboard.Padding = New System.Windows.Forms.Padding(20, 0, 0, 0)
-        Me.btnDashboard.Size = New System.Drawing.Size(239, 60)
+        Me.btnDashboard.Padding = New System.Windows.Forms.Padding(27, 0, 0, 0)
+        Me.btnDashboard.Size = New System.Drawing.Size(319, 74)
         Me.btnDashboard.TabIndex = 2
         Me.btnDashboard.Text = "Dashboard"
         Me.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft
@@ -217,16 +228,18 @@ Partial Class frmDashboard
         Me.Panel2.Controls.Add(Me.PictureBox1)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
+        Me.Panel2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(239, 79)
+        Me.Panel2.Size = New System.Drawing.Size(319, 97)
         Me.Panel2.TabIndex = 2
         '
         'PictureBox1
         '
         Me.PictureBox1.Image = Global.SalonSystem.My.Resources.Resources.s_glogo_transparent
-        Me.PictureBox1.Location = New System.Drawing.Point(31, 12)
+        Me.PictureBox1.Location = New System.Drawing.Point(41, 15)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(177, 60)
+        Me.PictureBox1.Size = New System.Drawing.Size(236, 74)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -234,20 +247,22 @@ Partial Class frmDashboard
         'pnlMainContent
         '
         Me.pnlMainContent.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.pnlMainContent.Location = New System.Drawing.Point(239, 39)
+        Me.pnlMainContent.Location = New System.Drawing.Point(319, 48)
+        Me.pnlMainContent.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.pnlMainContent.Name = "pnlMainContent"
-        Me.pnlMainContent.Size = New System.Drawing.Size(945, 572)
+        Me.pnlMainContent.Size = New System.Drawing.Size(1260, 704)
         Me.pnlMainContent.TabIndex = 2
         '
         'frmDashboard
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.ClientSize = New System.Drawing.Size(1184, 611)
+        Me.ClientSize = New System.Drawing.Size(1579, 752)
         Me.Controls.Add(Me.pnlMainContent)
         Me.Controls.Add(Me.pnlHeader)
         Me.Controls.Add(Me.pnlSidebar)
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "frmDashboard"
@@ -273,7 +288,7 @@ Partial Class frmDashboard
     Friend WithEvents btnPOS As Button
     Friend WithEvents btnLogout As Button
     Friend WithEvents Button4 As Button
-    Friend WithEvents Button5 As Button
+    Friend WithEvents btnPayroll As Button
     Friend WithEvents Button6 As Button
     Friend WithEvents pnlMainContent As Panel
 End Class

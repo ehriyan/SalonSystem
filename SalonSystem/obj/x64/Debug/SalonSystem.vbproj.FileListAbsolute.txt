@@ -1,0 +1,1 @@
+C:\SalonSystem\SalonSystem\obj\x64\Debug\SalonSystem.vbproj.AssemblyReference.cache

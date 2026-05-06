@@ -70,4 +70,12 @@
         LoadFormInPanel(New frmManageClients())
     End Sub
 
+    Private Sub pnlMainContent_Paint(sender As Object, e As PaintEventArgs) Handles pnlMainContent.Paint
+
+    End Sub
+
+    Private Sub btnPayroll_Click(sender As Object, e As EventArgs) Handles btnPayroll.Click
+        SetActiveButton(btnPayroll)
+        LoadFormInPanel(New frmPayroll())
+    End Sub
 End Class

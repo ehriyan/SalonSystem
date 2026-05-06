@@ -65,4 +65,7 @@ Public Class frmAddUser
         Me.Close()
     End Sub
 
+    Private Sub frmAddUser_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

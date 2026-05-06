@@ -1,0 +1,27 @@
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.vbproj.AssemblyReference.cache
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.frmLogin.resources
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.Resources.resources
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.vbproj.GenerateResource.cache
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.vbproj.CoreCompileInputs.cache
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\bin\Debug\SalonSystem.exe.config
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\bin\Debug\SalonSystem.exe
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\bin\Debug\SalonSystem.pdb
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\bin\Debug\SalonSystem.xml
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.exe
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.xml
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.pdb
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.exe.config
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.frmDashboard.resources
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.frmHub.resources
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.frmPOS.resources
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.frmSelectStylists.resources
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.frmPayment.resources
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.frmManageUsers.resources
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.frmAddUser.resources
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.frmAddClient.resources
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.frmManageClients.resources
+C:\Users\Erianne Pineda\source\repos\SalonSystem\SalonSystem\obj\Debug\SalonSystem.frmHome.resources
+C:\SalonSystem\SalonSystem\obj\Debug\SalonSystem.vbproj.AssemblyReference.cache
+C:\SalonSystem\SalonSystem\obj\Debug\SalonSystem.exe
+C:\SalonSystem\SalonSystem\obj\Debug\SalonSystem.xml
+C:\SalonSystem\SalonSystem\obj\Debug\SalonSystem.pdb

@@ -207,4 +207,12 @@ Public Class frmPOS
 
         Me.Close()
     End Sub
+
+    Private Sub flpServices_Paint(sender As Object, e As PaintEventArgs) Handles flpServices.Paint
+
+    End Sub
+
+    Private Sub pnlCart_Paint(sender As Object, e As PaintEventArgs) Handles pnlCart.Paint
+
+    End Sub
 End Class
