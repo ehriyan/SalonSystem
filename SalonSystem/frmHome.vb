@@ -1,76 +1,101 @@
 ﻿Imports System.Data.OleDb
+Imports Microsoft.Web.WebView2.Core
 
 Public Class frmHome
-    Private Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        SetupGridStyle()
-        'LoadRecentActivity()
+
+    Private Async Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Await wvDashboard.EnsureCoreWebView2Async(Nothing)
     End Sub
 
-    Private Sub LoadRecentActivity()
+    Private Sub wvDashboard_CoreWebView2InitializationCompleted(sender As Object, e As CoreWebView2InitializationCompletedEventArgs) Handles wvDashboard.CoreWebView2InitializationCompleted
+        If e.IsSuccess Then
+            LoadModernDashboard()
+        Else
+            MessageBox.Show("Dashboard failed to load: " & e.InitializationException.Message, "WebView2 Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        End If
+    End Sub
+
+    Private Sub LoadModernDashboard()
+
+        Dim todayRevenue As Decimal = 0
+        Dim todayCustomers As Integer = 0
+        Dim topStylist As String = "No data yet"
+
+        Dim chartDataList As New List(Of String)()
+        Dim chartLabelsList As New List(Of String)()
+
         Try
-            OpenConnection()
+            SessionManager.OpenConnection()
+            Dim today As DateTime = DateTime.Today
 
-            Dim query As String = "SELECT TOP 10 TransactionID, TransactionTime, " &
-                                  "ClientName, StylistName, TotalAmount " &
-                                  "FROM tblTransactions " &
-                                  "WHERE TransactionDate = Date() " &
-                                  "ORDER BY TransactionTime DESC"
+            Dim qryToday As String = "SELECT SUM([GrandTotal]), COUNT([TransactionID]) FROM tblTransactions " &
+                                     "WHERE [TransactionDate] >= @start AND [TransactionDate] <= @end"
+            Using cmd As New OleDbCommand(qryToday, SessionManager.conn)
+                cmd.Parameters.Add("@start", OleDbType.Date).Value = today
+                cmd.Parameters.Add("@end", OleDbType.Date).Value = today.AddDays(1).AddSeconds(-1)
 
-            Dim cmd As New OleDbCommand(query, conn)
-            Dim adapter As New OleDbDataAdapter(cmd)
-            Dim dt As New DataTable()
-            adapter.Fill(dt)
+                Using reader As OleDbDataReader = cmd.ExecuteReader()
+                    If reader.Read() Then
+                        If Not IsDBNull(reader(0)) Then todayRevenue = Convert.ToDecimal(reader(0))
+                        If Not IsDBNull(reader(1)) Then todayCustomers = Convert.ToInt32(reader(1))
+                    End If
+                End Using
+            End Using
 
-            'dgvRecentActivity.DataSource = dt
 
-            'dgvRecentActivity.Columns("TransactionTime").HeaderText = "Time"
-            'dgvRecentActivity.Columns("ClientName").HeaderText = "Client"
-            'dgvRecentActivity.Columns("StylistName").HeaderText = "Stylist"
-            'dgvRecentActivity.Columns("TotalAmount").HeaderText = "Total Paid"
+            Dim qryStylist As String = "SELECT TOP 1 (e.FirstName & ' ' & e.LastName) AS StylistName " &
+                                       "FROM tblPayroll p INNER JOIN tblEmployees e ON p.EmployeeID = e.EmployeeID " &
+                                       "ORDER BY p.TotalSales DESC"
+            Using cmd As New OleDbCommand(qryStylist, SessionManager.conn)
+                Dim result = cmd.ExecuteScalar()
+                If result IsNot Nothing AndAlso Not IsDBNull(result) Then
+                    topStylist = result.ToString()
+                End If
+            End Using
 
-            'dgvRecentActivity.Columns("TotalAmount").DefaultCellStyle.Format = "C2"
 
-            'dgvRecentActivity.Columns("TransactionID").Visible = False
+            For i As Integer = 6 To 0 Step -1
+                Dim targetDate As DateTime = today.AddDays(-i)
+
+                chartLabelsList.Add("'" & targetDate.ToString("ddd") & "'")
+
+                Dim qryChart As String = "SELECT SUM([GrandTotal]) FROM tblTransactions " &
+                                         "WHERE [TransactionDate] >= @start AND [TransactionDate] <= @end"
+                Using cmd As New OleDbCommand(qryChart, SessionManager.conn)
+                    cmd.Parameters.Add("@start", OleDbType.Date).Value = targetDate
+                    cmd.Parameters.Add("@end", OleDbType.Date).Value = targetDate.AddDays(1).AddSeconds(-1)
+
+                    Dim revResult = cmd.ExecuteScalar()
+                    If revResult IsNot Nothing AndAlso Not IsDBNull(revResult) Then
+                        chartDataList.Add(Convert.ToDecimal(revResult).ToString("0.00"))
+                    Else
+                        chartDataList.Add("0")
+                    End If
+                End Using
+            Next
+
+            Dim htmlFilePath As String = System.IO.Path.Combine(Application.StartupPath, "UI", "DashboardLayout.html")
+
+            If System.IO.File.Exists(htmlFilePath) Then
+                Dim rawHtml As String = System.IO.File.ReadAllText(htmlFilePath)
+
+                Dim finalHtml As String = rawHtml.Replace("[TODAY_REVENUE]", "₱" & todayRevenue.ToString("N2"))
+                finalHtml = finalHtml.Replace("[TODAY_CUSTOMERS]", todayCustomers.ToString())
+                finalHtml = finalHtml.Replace("[TOP_STYLIST]", topStylist)
+
+                finalHtml = finalHtml.Replace("[CHART_DATA]", String.Join(",", chartDataList))
+                finalHtml = finalHtml.Replace("[CHART_LABELS]", String.Join(",", chartLabelsList))
+
+                wvDashboard.NavigateToString(finalHtml)
+            Else
+                MessageBox.Show("Could not find the DashboardLayout.html file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            End If
 
         Catch ex As Exception
-            MessageBox.Show("Dashboard Data Error: " & ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("Error loading real data: " & ex.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Finally
-            CloseConnection()
+            SessionManager.CloseConnection()
         End Try
     End Sub
 
-    Private Sub SetupGridStyle()
-        'dgvRecentActivity.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
-        'dgvRecentActivity.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill
-        'dgvRecentActivity.AllowUserToAddRows = False
-        'dgvRecentActivity.RowHeadersVisible = False
-        'dgvRecentActivity.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        'dgvRecentActivity.ReadOnly = True
-
-        'dgvRecentActivity.BackgroundColor = Color.White
-        'dgvRecentActivity.BorderStyle = BorderStyle.None
-        'dgvRecentActivity.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal
-        'dgvRecentActivity.GridColor = Color.FromArgb(230, 230, 230)
-        'dgvRecentActivity.EnableHeadersVisualStyles = False
-
-        'Dim modernFont As New Font("DM Sans", 11, FontStyle.Regular)
-        'Dim headerFont As New Font("DM Sans", 11, FontStyle.Bold)
-
-        'dgvRecentActivity.DefaultCellStyle.Font = modernFont
-        'dgvRecentActivity.ColumnHeadersDefaultCellStyle.Font = headerFont
-
-        'dgvRecentActivity.RowTemplate.Height = 40
-        'dgvRecentActivity.ColumnHeadersHeight = 50
-
-        'dgvRecentActivity.DefaultCellStyle.Padding = New Padding(5, 0, 5, 0)
-        'dgvRecentActivity.ColumnHeadersDefaultCellStyle.Padding = New Padding(5, 5, 5, 5)
-
-        'dgvRecentActivity.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(40, 40, 40)
-        'dgvRecentActivity.ColumnHeadersDefaultCellStyle.ForeColor = Color.White
-
-        'dgvRecentActivity.DefaultCellStyle.SelectionBackColor = Color.LightGray
-        'dgvRecentActivity.DefaultCellStyle.SelectionForeColor = Color.Black
-
-        'dgvRecentActivity.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245)
-    End Sub
 End Class

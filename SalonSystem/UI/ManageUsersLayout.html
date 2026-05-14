@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            background-color: #f7f5f2;
+            padding: 20px;
+            margin: 0;
+        }
+
+        h2 {
+            color: #293541;
+            margin-top: 0;
+        }
+
+        .controls {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+        }
+
+        .filter-dropdown {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        th {
+            background-color: #293541;
+            color: white;
+            padding: 12px;
+            text-align: left;
+        }
+
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #eee;
+            color: #333;
+        }
+
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .btn-deactivate {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+            .btn-deactivate:hover {
+                background-color: #c0392b;
+            }
+
+        .btn-reactivate {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+            .btn-reactivate:hover {
+                background-color: #2980b9;
+            }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .badge-active {
+            background-color: #2ecc71;
+        }
+
+        .badge-inactive {
+            background-color: #95a5a6;
+        }
+    </style>
+</head>
+<body>
+    <h2>Manage Users</h2>
+
+    <div class="controls">
+        <button class="btn-reactivate" style="background-color: #2ecc71; padding: 10px 15px; font-weight: bold;" onclick="openAddUser()">+ Add New User</button>
+
+        <input type="text" id="searchInput" class="search-box" placeholder="Search by username, email, or role...">
+        <select id="statusFilter" class="filter-dropdown">
+            <option value="active">Active Users Only</option>
+            <option value="all">Show All Users</option>
+            <option value="inactive">Archived Users Only</option>
+        </select>
+    </div>
+
+    <table id="usersTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+
+    <script>
+        let allUsers = [];
+
+        window.chrome.webview.addEventListener('message', event => {
+            allUsers = event.data;
+            renderTable(); 
+        });
+
+        function renderTable() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const statusFilter = document.getElementById('statusFilter').value;
+            const tbody = document.querySelector('#usersTable tbody');
+            tbody.innerHTML = '';
+
+            const filteredUsers = allUsers.filter(user => {
+                const matchesSearch = user.username.toLowerCase().includes(searchTerm) ||
+                    user.email.toLowerCase().includes(searchTerm) ||
+                    user.role.toLowerCase().includes(searchTerm);
+
+                let matchesStatus = true;
+                if (statusFilter === 'active') matchesStatus = user.isActive === true;
+                if (statusFilter === 'inactive') matchesStatus = user.isActive === false;
+
+                return matchesSearch && matchesStatus;
+            });
+
+            filteredUsers.forEach(user => {
+                const statusHtml = user.isActive
+                    ? '<span class="badge badge-active">Active</span>'
+                    : '<span class="badge badge-inactive">Inactive</span>';
+
+                const actionBtn = user.isActive
+                    ? `<button class="btn-deactivate" onclick="toggleStatus(${user.id}, false)">Deactivate</button>`
+                    : `<button class="btn-reactivate" onclick="toggleStatus(${user.id}, true)">Reactivate</button>`;
+
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                        <td>${user.id}</td>
+                        <td>${user.username}</td>
+                        <td>${user.email}</td>
+                        <td>${user.role}</td>
+                        <td>${statusHtml}</td>
+                        <td>${actionBtn}</td>
+                    `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        function toggleStatus(id, makeActive) {
+            const actionString = makeActive ? 'REACTIVATE:' : 'DEACTIVATE:';
+            const confirmMsg = makeActive ? 'Are you sure you want to REACTIVATE this user?' : 'Are you sure you want to DEACTIVATE this user?';
+
+            if (confirm(confirmMsg)) {
+                window.chrome.webview.postMessage(actionString + id);
+            }
+        }
+
+        function openAddUser() {
+            window.chrome.webview.postMessage('OPEN_ADD_USER');
+        }
+
+        document.getElementById('searchInput').addEventListener('input', renderTable);
+        document.getElementById('statusFilter').addEventListener('change', renderTable);
+    </script>
+</body>
+</html>

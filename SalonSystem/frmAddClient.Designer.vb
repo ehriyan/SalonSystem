@@ -280,7 +280,7 @@ Partial Class frmAddClient
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancel.Font = New System.Drawing.Font("DM Sans", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnCancel.ForeColor = System.Drawing.Color.DodgerBlue
-        Me.btnCancel.Location = New System.Drawing.Point(524, 397)
+        Me.btnCancel.Location = New System.Drawing.Point(524, 393)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(266, 46)
         Me.btnCancel.TabIndex = 58
@@ -331,7 +331,7 @@ Partial Class frmAddClient
         '
         Me.Panel1.BackColor = System.Drawing.Color.Silver
         Me.Panel1.Location = New System.Drawing.Point(496, 131)
-        Me.Panel1.Margin = New System.Windows.Forms.Padding(2, 2, 2, 2)
+        Me.Panel1.Margin = New System.Windows.Forms.Padding(2)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(316, 1)
         Me.Panel1.TabIndex = 61

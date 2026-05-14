@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salon Login</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f4f7f6;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            width: 100%;
+            max-width: 350px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+        }
+
+            input:focus {
+                outline: none;
+                border-color: #3498db;
+            }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+            button:hover {
+                background-color: #1a252f;
+            }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <h2>Welcome Back</h2>
+        <input type="text" id="txtUsername" placeholder="Username" autocomplete="off">
+        <input type="password" id="txtPassword" placeholder="Password">
+        <button onclick="attemptLogin()">Sign In</button>
+    </div>
+
+    <script>
+        function attemptLogin() {
+            let u = document.getElementById('txtUsername').value;
+            let p = document.getElementById('txtPassword').value;
+
+            if (u === "" || p === "") {
+                alert("Please enter both username and password.");
+                return;
+            }
+            window.chrome.webview.postMessage(u + "|" + p);
+        }
+    </script>
+</body>
+</html>

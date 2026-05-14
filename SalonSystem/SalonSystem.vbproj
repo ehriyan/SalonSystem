@@ -14,6 +14,8 @@
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,16 +50,75 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.6.2\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.105.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.105.0\lib\netstandard2.0\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML.Parser, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1d5f7376574c51ec, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.Parser.2.0.0\lib\netstandard2.0\ClosedXML.Parser.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.3.1.1\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml.Framework, Version=3.1.1.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.Framework.3.1.1\lib\net46\DocumentFormat.OpenXml.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.1.0.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.1.0\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=6.6.0.0, Culture=neutral, PublicKeyToken=d16d1e4e568ec10f, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.6.6.0\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.5, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.5\lib\net461\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Core, Version=1.0.3967.48, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3967.48\lib\net462\Microsoft.Web.WebView2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.WinForms, Version=1.0.3967.48, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3967.48\lib\net462\Microsoft.Web.WebView2.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.WebView2.Wpf, Version=1.0.3967.48, Culture=neutral, PublicKeyToken=2a8ab48044d2601e, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.WebView2.1.0.3967.48\lib\net462\Microsoft.Web.WebView2.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="RBush, Version=4.0.0.0, Culture=neutral, PublicKeyToken=c77e27b81f4d0187, processorArchitecture=MSIL">
+      <HintPath>..\packages\RBush.Signed.4.0.0\lib\net47\RBush.dll</HintPath>
+    </Reference>
+    <Reference Include="SixLabors.Fonts, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d998eea7b14cab13, processorArchitecture=MSIL">
+      <HintPath>..\packages\SixLabors.Fonts.1.0.0\lib\netstandard2.0\SixLabors.Fonts.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
@@ -79,10 +140,52 @@
     <Compile Include="frmAddClient.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmAddEmployee.Designer.vb">
+      <DependentUpon>frmAddEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddService.Designer.vb">
+      <DependentUpon>frmAddService.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddService.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmAddUser.Designer.vb">
       <DependentUpon>frmAddUser.vb</DependentUpon>
     </Compile>
     <Compile Include="frmAddUser.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDiscount.Designer.vb">
+      <DependentUpon>frmDiscount.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDiscount.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditClient.Designer.vb">
+      <DependentUpon>frmEditClient.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditClient.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditEmployee.Designer.vb">
+      <DependentUpon>frmEditEmployee.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditEmployee.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditService.Designer.vb">
+      <DependentUpon>frmEditService.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditService.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditUsers.Designer.vb">
+      <DependentUpon>frmEditUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditUsers.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmHome.Designer.vb">
@@ -110,10 +213,34 @@
     <Compile Include="frmHub.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmLogin_2.Designer.vb">
+      <DependentUpon>frmLogin_2.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin_2.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmManageClients.Designer.vb">
       <DependentUpon>frmManageClients.vb</DependentUpon>
     </Compile>
     <Compile Include="frmManageClients.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageEmployees.Designer.vb">
+      <DependentUpon>frmManageEmployees.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageEmployees.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManagePayroll.Designer.vb">
+      <DependentUpon>frmManagePayroll.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmManagePayroll.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageServices.Designer.vb">
+      <DependentUpon>frmManageServices.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmManageServices.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmManageUsers.Designer.vb">
@@ -128,16 +255,40 @@
     <Compile Include="frmPayment.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPayrollHistory.Designer.vb">
+      <DependentUpon>frmPayrollHistory.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPayrollHistory.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmPOS.Designer.vb">
       <DependentUpon>frmPOS.vb</DependentUpon>
     </Compile>
     <Compile Include="frmPOS.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmSelectClient.Designer.vb">
+      <DependentUpon>frmSelectClient.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmSelectClient.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmSelectStylists.Designer.vb">
       <DependentUpon>frmSelectStylists.vb</DependentUpon>
     </Compile>
     <Compile Include="frmSelectStylists.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewClient.Designer.vb">
+      <DependentUpon>frmViewClient.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewClient.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmViewReports.Designer.vb">
+      <DependentUpon>frmViewReports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewReports.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SessionManager.vb" />
@@ -162,8 +313,29 @@
     <EmbeddedResource Include="frmAddClient.resx">
       <DependentUpon>frmAddClient.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddEmployee.resx">
+      <DependentUpon>frmAddEmployee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddService.resx">
+      <DependentUpon>frmAddService.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddUser.resx">
       <DependentUpon>frmAddUser.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDiscount.resx">
+      <DependentUpon>frmDiscount.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditClient.resx">
+      <DependentUpon>frmEditClient.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditEmployee.resx">
+      <DependentUpon>frmEditEmployee.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditService.resx">
+      <DependentUpon>frmEditService.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditUsers.resx">
+      <DependentUpon>frmEditUsers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.vb</DependentUpon>
@@ -177,8 +349,20 @@
     <EmbeddedResource Include="frmHub.resx">
       <DependentUpon>frmHub.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin_2.resx">
+      <DependentUpon>frmLogin_2.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmManageClients.resx">
       <DependentUpon>frmManageClients.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageEmployees.resx">
+      <DependentUpon>frmManageEmployees.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManagePayroll.resx">
+      <DependentUpon>frmManagePayroll.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageServices.resx">
+      <DependentUpon>frmManageServices.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageUsers.resx">
       <DependentUpon>frmManageUsers.vb</DependentUpon>
@@ -186,11 +370,23 @@
     <EmbeddedResource Include="frmPayment.resx">
       <DependentUpon>frmPayment.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPayrollHistory.resx">
+      <DependentUpon>frmPayrollHistory.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPOS.resx">
       <DependentUpon>frmPOS.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSelectClient.resx">
+      <DependentUpon>frmSelectClient.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSelectStylists.resx">
       <DependentUpon>frmSelectStylists.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewClient.resx">
+      <DependentUpon>frmViewClient.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewReports.resx">
+      <DependentUpon>frmViewReports.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
@@ -212,6 +408,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Resources\logo.png" />
   </ItemGroup>
   <ItemGroup>
@@ -259,5 +456,27 @@
   <ItemGroup>
     <None Include="Resources\group-dark.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="UI\AddUserLayout.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\DashboardLayout.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\login.html">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="UI\ManageUsersLayout.html">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <Import Project="..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets" Condition="Exists('..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Web.WebView2.1.0.3967.48\build\Microsoft.Web.WebView2.targets'))" />
+  </Target>
 </Project>

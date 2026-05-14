@@ -1,4 +1,6 @@
-﻿Public Class frmDashboard
+﻿Imports Microsoft.Web.WebView2.Core
+
+Public Class frmDashboard
     Private Sub frmDashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim currentScreen As Screen = Screen.FromControl(Me)
         Me.MaximizedBounds = currentScreen.WorkingArea
@@ -6,10 +8,35 @@
         lblWelcome.Text = "Welcome, " & CurrentUsername & "!"
 
         LoadFormInPanel(New frmHome())
+        ApplyRolePermissions()
+
     End Sub
 
     Private Sub frmDashboard_LocationChanged(sender As Object, e As EventArgs) Handles MyBase.LocationChanged
         Me.MaximizedBounds = Screen.FromControl(Me).WorkingArea
+    End Sub
+
+    Private Sub ApplyRolePermissions()
+        Dim role As String = SessionManager.CurrentUserRole
+
+        btnDashboard.Visible = True
+        btnPOS.Visible = True
+        btnManageUsers.Visible = True
+        btnManageClients.Visible = True
+        btnManageEmployees.Visible = True
+        btnManageServices.Visible = True
+        btnManagePayroll.Visible = True
+        btnPayrollHistory.Visible = False
+        btnViewReports.Visible = True
+
+        If role = "Assistant Manager" Then
+            btnManageUsers.Visible = False
+            btnManageEmployees.Visible = False
+            btnManagePayroll.Visible = False
+            btnViewReports.Visible = False
+        ElseIf role = "Owner" Then
+            btnPayrollHistory.Visible = True
+        End If
     End Sub
 
     Private Sub btnLogout_Click(sender As Object, e As EventArgs) Handles btnLogout.Click
@@ -68,6 +95,31 @@
     Private Sub btnManageClients_Click(sender As Object, e As EventArgs) Handles btnManageClients.Click
         SetActiveButton(btnManageClients)
         LoadFormInPanel(New frmManageClients())
+    End Sub
+
+    Private Sub btnManageEmployees_Click(sender As Object, e As EventArgs) Handles btnManageEmployees.Click
+        SetActiveButton(btnManageEmployees)
+        LoadFormInPanel(New frmManageEmployees())
+    End Sub
+
+    Private Sub btnManageServices_Click(sender As Object, e As EventArgs) Handles btnManageServices.Click
+        SetActiveButton(btnManageServices)
+        LoadFormInPanel(New frmManageServices())
+    End Sub
+
+    Private Sub btnManagePayroll_Click(sender As Object, e As EventArgs) Handles btnManagePayroll.Click
+        SetActiveButton(btnManagePayroll)
+        LoadFormInPanel(New frmManagePayroll())
+    End Sub
+
+    Private Sub btnPayrollHistory_Click(sender As Object, e As EventArgs) Handles btnPayrollHistory.Click
+        SetActiveButton(btnPayrollHistory)
+        LoadFormInPanel(New frmPayrollHistory())
+    End Sub
+
+    Private Sub btnViewReports_Click(sender As Object, e As EventArgs) Handles btnViewReports.Click
+        SetActiveButton(btnViewReports)
+        LoadFormInPanel(New frmViewReports())
     End Sub
 
 End Class

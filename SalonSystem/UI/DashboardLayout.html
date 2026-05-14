@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f5f2;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #293541;
+        }
+
+        .kpi-container {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .kpi-card {
+            flex: 1;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid #293541;
+        }
+
+        .kpi-title {
+            font-size: 14px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .kpi-value {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin: 0;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            height: 350px;
+        }
+    </style>
+    <script src='https://cdn.jsdelivr.net/npm/chart.js'></script>
+</head>
+<body>
+    <h2>Overview</h2>
+    <div class='kpi-container'>
+        <div class='kpi-card'>
+            <div class='kpi-title'>Today's Revenue</div>
+            <div class='kpi-value'>[TODAY_REVENUE]</div>
+        </div>
+        <div class='kpi-card'>
+            <div class='kpi-title'>Total Customers</div>
+            <div class='kpi-value'>[TODAY_CUSTOMERS]</div>
+        </div>
+        <div class='kpi-card'>
+            <div class='kpi-title'>Top Stylist Today</div>
+            <div class='kpi-value'>[TOP_STYLIST]</div>
+        </div>
+    </div>
+
+    <div class='chart-container'>
+        <canvas id='revenueChart'></canvas>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('revenueChart').getContext('2d');
+        var revenueChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: [[CHART_LABELS]],
+                datasets: [{
+                    label: 'Daily Revenue (₱)',
+                    data: [[CHART_DATA]], 
+                    backgroundColor: '#293541',
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    </script>
+</body>
+</html>
